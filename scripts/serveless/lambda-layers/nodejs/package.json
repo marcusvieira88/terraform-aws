@@ -1,0 +1,22 @@
+{
+  "name": "terraform-aws",
+  "version": "1.0.0",
+  "description": "To configure Terrraform: - Download the terraform in https://www.terraform.io/downloads.html. - Move it to /usr/local/bin/terraform - Check if it is working with the command: terraform --version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusvieira88/terraform-aws.git"
+  },
+  "author": "Marcus Vieira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcusvieira88/terraform-aws/issues"
+  },
+  "homepage": "https://github.com/marcusvieira88/terraform-aws#readme",
+  "dependencies": {
+    "joi": "^14.3.1"
+  }
+}

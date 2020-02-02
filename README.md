@@ -49,6 +49,9 @@ For avoid to type "yes" during the apply command you can use the -auto-approve p
 To format the code you can use:
 - terraform fmt
 
+For refresh terrafor state:
+- terraform refresh
+
 The command terraform import is used to import resources from AWS that are not in your code.
 
 For visualize the modules structure you can use terraform graph command with GraphViz tool.
@@ -60,4 +63,36 @@ A good practice on Terraform is work into workspaces, for handle them use:
 - terraform workspace list (show all workspaces available)
 - terraform workspace delete dev (delete workspace)
 
+### Serveless test
 
+To test the serveless architecture, we need to log in to cognito first:
+
+```
+POST  https://todos-api-10736960503134048813.auth.us-east-1.amazoncognito.com/oauth2/token?grant_type=client_credentials
+```
+Basic Auth - client_id and client_secret
+Header - Content-Type / application/x-www-form-urlencoded
+
+For Test the API methods, add the Bearer Token - (generated in the step before - Cognito):
+
+```
+GET https://j4t20v4nzb.execute-api.us-east-1.amazonaws.com/dev/todos
+```
+
+```
+POST https://j4t20v4nzb.execute-api.us-east-1.amazonaws.com/dev/todos
+```
+
+```
+PUT https://j4t20v4nzb.execute-api.us-east-1.amazonaws.com/dev/todos?todoid=2
+```
+
+```
+DELETE https://j4t20v4nzb.execute-api.us-east-1.amazonaws.com/dev/todos?todoid=2
+```
+
+Test trigger lambda by file update event:
+
+```
+aws2 s3 cp todo.json s3://terraform-todo-950158b0d4b4522d
+```
