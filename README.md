@@ -65,7 +65,7 @@ A good practice on Terraform is work into workspaces, for handle them use:
 
 ### Serveless path execution
 
-![Screenshot](serveless/serveless-architecture.png)
+![serveless-architecture](scripts/serveless/serveless-architecture.png)
 
 To test the serveless architecture, we need to log in to cognito first:
 
@@ -101,7 +101,7 @@ aws2 s3 cp todo.json s3://terraform-todo-950158b0d4b4522d
 
 ### ECS Fargate path execution
 
-![Screenshot](ecs-fargate/ecs-fargate-architecture.png)
+![ecs-fargate-architecture](scripts/ecs-fargate/ecs-fargate-architecture.png)
 
 For build the resources:
 ```
