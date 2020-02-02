@@ -45,9 +45,8 @@ const publish = async (SNS, payload) => {
 }
 
 exports.handler = async (event) => {
-  if (process.env.DEBUG) {
-    console.log(`Received event: ${JSON.stringify(event)}`)
-  }
+
+  console.log(`Received event: ${JSON.stringify(event)}`)
 
   const topicArn = event.topicArn || process.env.TOPIC_ARN
   if (!topicArn) {

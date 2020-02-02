@@ -63,7 +63,9 @@ A good practice on Terraform is work into workspaces, for handle them use:
 - terraform workspace list (show all workspaces available)
 - terraform workspace delete dev (delete workspace)
 
-### Serveless test
+### Serveless path execution
+
+![Screenshot](serveless/serveless-architecture.png)
 
 To test the serveless architecture, we need to log in to cognito first:
 
@@ -96,3 +98,25 @@ Test trigger lambda by file update event:
 ```
 aws2 s3 cp todo.json s3://terraform-todo-950158b0d4b4522d
 ```
+
+### ECS Fargate path execution
+
+![Screenshot](ecs-fargate/ecs-fargate-architecture.png)
+
+For build the resources:
+```
+chmod 775 deploy.sh
+./destroy.sh
+```
+
+For delete the resources:
+```
+chmod 775 destroy.sh  
+./deploy.sh
+```
+
+To access the app, you need to get the alb_url in the output and add the port:
+e.g. http://nodejs-app-dev-load-balancer-1679022753.eu-central-1.elb.amazonaws.com:3000/
+
+To access the cat images:
+http://nodejs-app-dev-load-balancer-1679022753.eu-central-1.elb.amazonaws.com:3000/cat
